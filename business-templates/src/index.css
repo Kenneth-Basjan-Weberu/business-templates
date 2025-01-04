@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ========== General CSS ========== */
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -28,16 +32,15 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
+
+/* ========== Buttons ========== */
 
 button {
   border-radius: 8px;
@@ -46,22 +49,76 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #ffffff;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: black;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.button-hollow {
+  border: 1px solid black;
+  background-color: #f9f9f9; /* Hollow effect */
+  color: black; /* Text color */
+  padding: 10px 20px; /* Padding for the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 0; /* Sharp corners */
+  font-weight: 700;
+  /* transition: background-color 0.3s, color 0.3s; */
+}
+
+.button-hollow:hover {
+  background-color: rgb(240, 240, 240); /* Changes background on hover */
+  color: black; /* Changes text color on hover */
+}
+
+.button-hollow-to-filled {
+  border: 1px solid black;
+  background-color: transparent; /* Hollow effect */
+  color: black; /* Initial text color */
+  padding: 10px 20px; /* Padding for the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 0; /* Sharp corners */
+  font-weight: 700;
+  background-image: linear-gradient(to right, black 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: background-position 0.5s, color 0.5s; /* Smooth transition for background and text color */
+}
+
+.button-hollow-to-filled:hover {
+  background-position: left bottom; /* Move gradient from left to right */
+  color: white; /* Invert text color on hover */
+}
+
+
+.button-filled:hover {
+  background-color: rgb(40, 40, 40); /* Changes background on hover */
+  color: #f9f9f9; /* Changes text color on hover */
+}
+
+.button-filled {
+  border: 1px solid black;
+  background-color: black; /* Hollow effect */
+  color: #f9f9f9; /* Text color */
+  padding: 10px 20px; /* Padding for the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 0; /* Sharp corners */
+  font-weight: 700;
+  /* transition: background-color 0.3s, color 0.3s; */
+}
+
+/* ========== Media Queries ========== */
+
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #1a1a1a;
+    background-color: #f9f9f9;
   }
   a:hover {
     color: #747bff;
@@ -69,4 +126,58 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #1a1a1a;
+    background-color: #f9f9f9;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* ========== Slider CSS ========== */
+
+/* Custom Swiper navigation arrow styles */
+.swiper-button-prev-custom,
+.swiper-button-next-custom {
+  position: absolute;
+  color: white; /* Set arrow color to black */
+  z-index: 200; /* Ensure arrows are above the slides */
+  width: 1.5rem;
+  top: 50%;
+  font-size: 50px; /* Adjust size */
+  cursor: pointer;
+  background: black; /* Remove background */
+  border: none; /* No border */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 500px 500px 500px 500px;
+  padding: 0;
+}
+
+/* Hover effects */
+.swiper-button-prev-custom:hover,
+.swiper-button-next-custom:hover {
+  color: #f9f9f9; /* Change color on hover */
+  border: none;
+}
+
+/* ========== Breadcrumbs ========== */
+
+/* Custom Swiper pagination styles */
+.swiper-pagination-bullet {
+  background-color: #d1d5db; /* Default color (light gray) */
+  opacity: 1; /* Ensure the bullet is fully opaque */
+  transition: background-color 0.3s ease; /* Smooth transition for color change */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #f97316; /* Active bullet color (e.g., orange) */
 }
