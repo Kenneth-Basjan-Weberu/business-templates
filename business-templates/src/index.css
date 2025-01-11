@@ -1,38 +1,42 @@
+/*========== Tailwind CSS ===========*/
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";  
+@import "tailwindcss/utilities";
+
+/*========== General CSS ===========*/
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* ========== General CSS ========== */
-
 :root {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  color-scheme: dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #1E1E1E;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #ffffff;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #906EF0;
 }
 
 body {
   margin: 0;
-  box-sizing: border-box;
+  min-width: 320px;
+  min-height: 100vh;
 }
 
 h1 {
@@ -40,144 +44,122 @@ h1 {
   line-height: 1.1;
 }
 
-/* ========== Buttons ========== */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #1E1E1E;
+    background-color: rgba(255, 255, 255, 0.87);
+  }
+  a:hover {
+    color: #906EF0;
+  }
+  button {
+    background-color: #1E1E1E;
+  }
+}
 
+/*========== Buttons ===========*/
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
+  border-radius: 10px;
+  border: 3px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #ffffff;
+  background-color: #1E1E1E;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: black;
+  border-color: #906EF0;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.button-hollow {
-  border: 1px solid black;
-  background-color: #f9f9f9; /* Hollow effect */
-  color: black; /* Text color */
-  padding: 10px 20px; /* Padding for the button */
-  cursor: pointer; /* Pointer cursor on hover */
-  border-radius: 0; /* Sharp corners */
-  font-weight: 700;
-  /* transition: background-color 0.3s, color 0.3s; */
+.button1 {
+  border: 3px solid #906EF0;
+  padding: 5px 20px;
+  background-color: transparent;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 18px;
+  cursor: pointer;
 }
 
-.button-hollow:hover {
-  background-color: rgb(240, 240, 240); /* Changes background on hover */
-  color: black; /* Changes text color on hover */
+.button1::before {
+  position: fixed;
+  top: -2px;
+  left: -2px; 
+  right: -2px;
+  bottom: -2px; 
+  z-index: -1;
 }
 
-.button-hollow-to-filled {
-  border: 1px solid black;
-  background-color: transparent; /* Hollow effect */
-  color: black; /* Initial text color */
-  padding: 10px 20px; /* Padding for the button */
-  cursor: pointer; /* Pointer cursor on hover */
-  border-radius: 0; /* Sharp corners */
-  font-weight: 700;
-  background-image: linear-gradient(to right, black 50%, transparent 50%);
-  background-size: 200% 100%;
-  background-position: right bottom;
-  transition: background-position 0.5s, color 0.5s; /* Smooth transition for background and text color */
+.button1:hover {
+  background-color: #906EF0;
+  
+  transition: 350ms ease-in-out;
 }
 
-.button-hollow-to-filled:hover {
-  background-position: left bottom; /* Move gradient from left to right */
-  color: white; /* Invert text color on hover */
+.button2 {
+  border: 3px solid #906EF0;
+  padding: 5px 20px;
+  background-color: transparent;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 14px;
+  cursor: pointer;
 }
 
-
-.button-filled:hover {
-  background-color: rgb(40, 40, 40); /* Changes background on hover */
-  color: #f9f9f9; /* Changes text color on hover */
+.button2::before {
+  position: fixed;
+  top: -2px;
+  left: -2px; 
+  right: -2px;
+  bottom: -2px; 
+  z-index: -1;
 }
 
-.button-filled {
-  border: 1px solid black;
-  background-color: black; /* Hollow effect */
-  color: #f9f9f9; /* Text color */
-  padding: 10px 20px; /* Padding for the button */
-  cursor: pointer; /* Pointer cursor on hover */
-  border-radius: 0; /* Sharp corners */
-  font-weight: 700;
-  /* transition: background-color 0.3s, color 0.3s; */
+.button2:hover {
+  background-color: #906EF0;
+  transition: 350ms ease-in-out;
 }
 
-/* ========== Media Queries ========== */
+.button2 a:hover {
+  color: #ffffff;
+}
 
+.popup {
+  border: 3px solid #906EF0;
+  padding: 5px 20px;
+  background-color: transparent;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.popup::before {
+  position: fixed;
+  top: -2px;
+  left: -2px; 
+  right: -2px;
+  bottom: -2px; 
+  z-index: -1;
+}
+
+.popup:hover {
+  background-color: #906EF0;
+  
+  transition: 350ms ease-in-out;
+}
+
+/*========== Media Queries ===========*/
 @media (prefers-color-scheme: light) {
   :root {
-    color: #1a1a1a;
-    background-color: #f9f9f9;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #1E1E1E;
+
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: #1a1a1a;
-    background-color: #f9f9f9;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
-/* ========== Slider CSS ========== */
-
-/* Custom Swiper navigation arrow styles */
-.swiper-button-prev-custom,
-.swiper-button-next-custom {
-  position: absolute;
-  color: white; /* Set arrow color to black */
-  z-index: 200; /* Ensure arrows are above the slides */
-  width: 1.5rem;
-  top: 50%;
-  font-size: 50px; /* Adjust size */
-  cursor: pointer;
-  background: black; /* Remove background */
-  border: none; /* No border */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 500px 500px 500px 500px;
-  padding: 0;
-}
-
-/* Hover effects */
-.swiper-button-prev-custom:hover,
-.swiper-button-next-custom:hover {
-  color: #f9f9f9; /* Change color on hover */
-  border: none;
-}
-
-/* ========== Breadcrumbs ========== */
-
-/* Custom Swiper pagination styles */
-.swiper-pagination-bullet {
-  background-color: #d1d5db; /* Default color (light gray) */
-  opacity: 1; /* Ensure the bullet is fully opaque */
-  transition: background-color 0.3s ease; /* Smooth transition for color change */
-}
-
-.swiper-pagination-bullet-active {
-  background-color: #f97316; /* Active bullet color (e.g., orange) */
 }
